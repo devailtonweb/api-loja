@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "o9QF6SpDIpjk4IQfRmKGXRnaFvthBDWmWqrLs0+jQ04=",
+  "Source": "AppStore",
+  "BasePath": "_content/AppStore",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

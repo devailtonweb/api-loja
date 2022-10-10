@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\workspace\\webapi-dotnet6\\AppStore\\AppStore.csproj": {}
+    "C:\\workspace\\webapi-dotnet6\\AppStore\\src\\AppStore.csproj": {}
   },
   "projects": {
-    "C:\\workspace\\webapi-dotnet6\\AppStore\\AppStore.csproj": {
+    "C:\\workspace\\webapi-dotnet6\\AppStore\\src\\AppStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\workspace\\webapi-dotnet6\\AppStore\\AppStore.csproj",
+        "projectUniqueName": "C:\\workspace\\webapi-dotnet6\\AppStore\\src\\AppStore.csproj",
         "projectName": "AppStore",
-        "projectPath": "C:\\workspace\\webapi-dotnet6\\AppStore\\AppStore.csproj",
+        "projectPath": "C:\\workspace\\webapi-dotnet6\\AppStore\\src\\AppStore.csproj",
         "packagesPath": "C:\\Users\\devai\\.nuget\\packages\\",
-        "outputPath": "C:\\workspace\\webapi-dotnet6\\AppStore\\obj\\",
+        "outputPath": "C:\\workspace\\webapi-dotnet6\\AppStore\\src\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -43,6 +43,36 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            },
+            "Flunt": {
+              "target": "Package",
+              "version": "[2.0.5, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.9, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
