@@ -22,13 +22,15 @@
 		<Using Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
 
 		<Using Include="AppStore.Domain.Products" />
+    <Using Include="AppStore.Domain.Users" />
 		<Using Include="AppStore.Infra.Data" />
 		<Using Include="AppStore.Endpoints.Employees" />
 		<Using Include="AppStore.Endpoints.Categories" />
 		<Using Include="AppStore.Endpoints.Security" />
     <Using Include="AppStore.Endpoints.Products" />
     <Using Include="AppStore.Endpoints.Clients" />
-	</ItemGroup>
+    <Using Include="AppStore.Endpoints.Orders" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />

@@ -16,6 +16,7 @@ public class Order : Entity
         ClientId = clientId;
         Products = products;
         DeliveryAddress = deliveryAddress;
+        Name = clientName;
         CreatedBy = clientName;
         EditedBy = clientName;
         CreatedOn = DateTime.UtcNow;
@@ -34,6 +35,7 @@ public class Order : Entity
     {
         var contract = new Contract<Order>()
             .IsNotNull(ClientId, "Client")
+            .IsNotNull(Name, "Name")
             .IsTrue(Products != null && Products.Any(), "Products")
             .IsNotNullOrEmpty(DeliveryAddress, "DeliveryAddress");
         AddNotifications(contract);

@@ -1,4 +1,3 @@
-using AppStore.Domain.Users;
 using Microsoft.AspNetCore.Diagnostics;
 using Serilog;
 using Serilog.Sinks.MSSqlServer;
@@ -27,8 +26,8 @@ builder.Services.AddAuthorization(options => {
     /* Somente o usuário com codigo 005 acessa o ednpoint
      * options.AddPolicy("Employee005Policy", p =>
         p.RequireAuthenticatedUser().RequireClaim("EmployeeCode", "005"));*/
-    /*options.AddPolicy("CpfPolicy", p =>
-        p.RequireAuthenticatedUser().RequireClaim("Cpf"));*/
+    options.AddPolicy("CpfPolicy", p =>
+        p.RequireAuthenticatedUser().RequireClaim("Cpf"));
 });
 
 builder.Services.AddAuthentication(x =>
@@ -54,6 +53,7 @@ builder.Services.AddAuthentication(x =>
 
 
 builder.Services.AddScoped<QueryAllUsersWithClaimName>();
+builder.Services.AddScoped<QueryAllProductsSold>();
 builder.Services.AddScoped<UserCreator>();
 
 builder.Services.AddEndpointsApiExplorer();
@@ -94,9 +94,13 @@ app.MapMethods(EmployeeGetAll.Template, EmployeeGetAll.Methods, EmployeeGetAll.H
 app.MapMethods(ProductPost.Template, ProductPost.Methods, ProductPost.Handle);
 app.MapMethods(ProductGetAll.Template, ProductGetAll.Methods, ProductGetAll.Handle);
 app.MapMethods(ProductGetShowcase.Template, ProductGetShowcase.Methods, ProductGetShowcase.Handle);
+app.MapMethods(ProductSoldGet.Template, ProductSoldGet.Methods, ProductSoldGet.Handle);
 
 app.MapMethods(ClientPost.Template, ClientPost.Methods, ClientPost.Handle);
 app.MapMethods(ClientGet.Template, ClientGet.Methods, ClientGet.Handle);
+
+app.MapMethods(OrderPost.Template, OrderPost.Methods, OrderPost.Handle);
+app.MapMethods(OrderGet.Template, OrderGet.Methods, OrderGet.Handle);
 
 app.MapMethods(TokenPost.Template, TokenPost.Methods, TokenPost.Handle);
 

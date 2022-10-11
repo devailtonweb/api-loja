@@ -1,5 +1,4 @@
 ﻿using AppStore.Domain.Orders;
-using AppStore.Domain.Users;
 
 namespace AppStore.Endpoints.Orders;
 
@@ -12,10 +11,8 @@ public class OrderPost
     [Authorize(Policy = "CpfPolicy")]
     public static async Task<IResult> Action(OrderRequest orderRequest, HttpContext http, ApplicationDbContext context)
     {
-        var clientId = http.User.Claims
-            .First(c => c.Type == ClaimTypes.NameIdentifier).Value;
-        var clientName = http.User.Claims
-            .First(c => c.Type == "Name").Value;
+        var clientId = http.User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
+        var clientName = http.User.Claims.First(c => c.Type == "Name").Value;
 
         List<Product> productsFound = null;
         if (orderRequest.ProductIds != null && orderRequest.ProductIds.Any())

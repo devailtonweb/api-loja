@@ -1,5 +1,4 @@
 ﻿using AppStore.Endpoints.Categories.Dto;
-using AppStore.Infra.Data;
 
 namespace AppStore.Endpoints.Categories;
 
