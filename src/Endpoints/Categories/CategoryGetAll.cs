@@ -14,7 +14,7 @@ public class CategoryGetAll
         var category = context.Categories.ToList();
         if (category == null)
             return Results.NotFound();
-        var response = category.Select(c => new EmployeeResponse { Id = c.Id, Name = c.Name, Active = c.Active });
+        var response = category.Select(c => new CategoryResponse { Id = c.Id, Name = c.Name, Active = c.Active });
 
         return Results.Ok(response);
     }

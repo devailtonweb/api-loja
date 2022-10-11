@@ -1,8 +1,4 @@
-﻿using AppStore.Domain.Products;
-using AppStore.Endpoints.Categories.Dto;
-using AppStore.Infra.Data;
-using Microsoft.AspNetCore.Authorization;
-using System.Security.Claims;
+﻿using AppStore.Endpoints.Categories.Dto;
 
 namespace AppStore.Endpoints.Categories;
 
@@ -14,21 +10,21 @@ public class CategoryPost
 
     [Authorize(Policy = "EmployeePolicy")]
     public static async Task<IResult> Action(
-        EmployeeRequest categoryRequest, 
+        CategoryRequest categoryRequest,
         HttpContext http,
-        ApplicationDbContext context) 
+        ApplicationDbContext context)
     {
 
         /*if (string.IsNullOrEmpty(categoryRequest.Name))
             return Results.BadRequest("Name is required");*/
-        var userId = http.User.Claims.First(categoryRequest => categoryRequest.Type == ClaimTypes.NameIdentifier).Value;
+        var userId = http.User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
         var category = new Category(categoryRequest.Name, userId, userId);
 
         if (!category.IsValid)
             return Results.ValidationProblem(category.Notifications.ConvertToProblemDetails());
 
-        context.Categories.AddAsync(category);
-        context.SaveChangesAsync();
+        await context.Categories.AddAsync(category);
+        await context.SaveChangesAsync();
 
         return Results.Created($"/categories/{category.Id}", category.Id);
     }

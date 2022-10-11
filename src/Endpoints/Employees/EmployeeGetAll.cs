@@ -1,8 +1,4 @@
-﻿using AppStore.Infra.Data;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-
-namespace AppStore.Endpoints.Employees;
+﻿namespace AppStore.Endpoints.Employees;
 
 public class EmployeeGetAll
 {

@@ -1,10 +1,4 @@
 ﻿using AppStore.Endpoints.Security.Dto;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 
 namespace AppStore.Endpoints.Security;
 
@@ -19,8 +13,12 @@ public class TokenPost
         LoginRequest loginRequest, 
         UserManager<IdentityUser> userManager, 
         IConfiguration configuration,
+        ILogger<TokenPost> log,
         IWebHostEnvironment environment)
     {
+
+        log.LogInformation("Getting token");
+
         var user = userManager.FindByEmailAsync(loginRequest.Email).Result;
         if (user == null)
             return Results.BadRequest();

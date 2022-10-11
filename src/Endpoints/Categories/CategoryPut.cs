@@ -1,7 +1,4 @@
 ﻿using AppStore.Endpoints.Categories.Dto;
-using AppStore.Infra.Data;
-using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace AppStore.Endpoints.Categories;
 
@@ -12,8 +9,8 @@ public class CategoryPut
     public static Delegate Handle => Action;
 
     public static IResult Action(
-        [FromRoute] Guid id, 
-        EmployeeRequest categoryRequest, 
+        [FromRoute] Guid id,
+        CategoryRequest categoryRequest, 
         ApplicationDbContext context,
         HttpContext http) 
     {

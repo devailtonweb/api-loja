@@ -1,6 +1,6 @@
 ﻿namespace AppStore.Endpoints.Categories.Dto;
 
-public class EmployeeResponse
+public class CategoryResponse
 {
     public Guid Id { get; set; }
     public string Name { get; set; }

@@ -1,7 +1,4 @@
 ﻿using AppStore.Endpoints.Employees.Dto;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using System.Security.Claims;
 
 namespace AppStore.Endpoints.Employees;
 
@@ -17,7 +14,8 @@ public class EmployeePost
         UserManager<IdentityUser> userManager,
         HttpContext http) 
     {
-        var userId = http.User.Claims.First(categoryRequest => categoryRequest.Type == ClaimTypes.NameIdentifier).Value;
+
+        var userId = http.User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
         var user = new IdentityUser { UserName = employeeRequest.Email, Email = employeeRequest.Email };
         var result = await userManager.CreateAsync(user, employeeRequest.Password);
 

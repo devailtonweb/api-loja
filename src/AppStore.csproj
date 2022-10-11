@@ -7,6 +7,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+		<Using Include="Flunt.Notifications" />
+		<Using Include="Microsoft.AspNetCore.Identity" />
+		<Using Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+		<Using Include="Microsoft.EntityFrameworkCore" />
+		<Using Include="Microsoft.AspNetCore.Authorization" />
+		<Using Include="System.Security.Claims" />
+		<Using Include="Microsoft.AspNetCore.Mvc" />
+		<Using Include="Microsoft.IdentityModel.Tokens" />
+		<Using Include="System.IdentityModel.Tokens.Jwt" />
+		<Using Include="System.Text" />
+		<Using Include="Dapper" />
+		<Using Include="Microsoft.Data.SqlClient" />
+		<Using Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+
+		<Using Include="AppStore.Domain.Products" />
+		<Using Include="AppStore.Infra.Data" />
+		<Using Include="AppStore.Endpoints.Employees" />
+		<Using Include="AppStore.Endpoints.Categories" />
+		<Using Include="AppStore.Endpoints.Security" />
+    <Using Include="AppStore.Endpoints.Products" />
+	</ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="Flunt" Version="2.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.9" />
@@ -17,11 +40,9 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.9" />
+    <PackageReference Include="Serilog.AspNetCore" Version="6.0.1" />
+    <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="5.8.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Endpoints\Products\" />
   </ItemGroup>
 
 </Project>
