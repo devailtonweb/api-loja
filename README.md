@@ -1,1 +1,1 @@
-Estudos dos novos conceitos do .NET 6
+Iniciando a arquitetura de sistema de pedidos, com novas abordagens do .NET 6
