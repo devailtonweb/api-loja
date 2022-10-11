@@ -27,6 +27,7 @@
 		<Using Include="AppStore.Endpoints.Categories" />
 		<Using Include="AppStore.Endpoints.Security" />
     <Using Include="AppStore.Endpoints.Products" />
+    <Using Include="AppStore.Endpoints.Clients" />
 	</ItemGroup>
 
   <ItemGroup>

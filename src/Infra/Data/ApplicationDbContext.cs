@@ -1,5 +1,6 @@
 ﻿namespace AppStore.Infra.Data;
 
+using AppStore.Domain.Orders;
 using AppStore.Domain.Products;
 using Flunt.Notifications;
 using Microsoft.AspNetCore.Identity;
@@ -16,7 +17,7 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     public DbSet<Category> Categories { get; set; }
     //public DbSet<Tag> Tags { get; set; }
 
-    //public DbSet<Order> Orders { get; set; }
+    public DbSet<Order> Orders { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -35,14 +36,14 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser>
         builder.Entity<Category>()
             .Property(c => c.Name).IsRequired();
 
-        /*builder.Entity<Order>()
+        builder.Entity<Order>()
             .Property(o => o.ClientId).IsRequired();
         builder.Entity<Order>()
             .Property(o => o.DeliveryAddress).IsRequired();
         builder.Entity<Order>()
             .HasMany(o => o.Products)
             .WithMany(p => p.Orders)
-            .UsingEntity(x => x.ToTable("OrderProducts"));*/
+            .UsingEntity(x => x.ToTable("OrderProducts"));
     }
 
     protected override void ConfigureConventions(ModelConfigurationBuilder configuration) 
